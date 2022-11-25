@@ -1,9 +1,9 @@
 const vehicle = {
     move () {
-        console.log('Argo is moving');
+        console.log(`${this.name} is moving`);
     },
     stop () {
-        console.log('Argo stopped')
+        console.log(`${this.name} stopped`)
     },
 }
 const ship = {
