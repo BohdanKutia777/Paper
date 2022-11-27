@@ -27,8 +27,8 @@ const renderListIteams = listIteams => {
 
       return listItemElem;
   });
-  console.log(Array.from(listIteamsElems));
-  listElem.append(Array.from(listIteamsElems));
+
+  listElem.append(...listIteamsElems);
 
 };
 
