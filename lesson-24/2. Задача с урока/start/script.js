@@ -10,7 +10,7 @@ const getLineSeats = () =>  generateNumberRahge(1,10)
     .map(number => `
     <div
         class="sector__seat"
-        data-sector-number="${number}"
+        data-seat-number="${number}"
         ></div>
         
     `).join('');
@@ -21,7 +21,7 @@ const seatsString = getLineSeats();
     .map(lineNumbers => `
     <div
         class="sector__line"
-        data-sector-number="${lineNumbers}"
+        data-line-number="${lineNumbers}"
         >${seatsString}</div>
         
     `).join('');
@@ -49,7 +49,6 @@ const onSeatSelect = event => {
         return;
     }
     const seatNumber = event.target.getAttribute('data-seat-number');
-    console.log(seatNumber);
     const lineNumber = event.target.closest('.sector__line').getAttribute('data-line-number');
     const sectorNumber = event.target.closest('.sector').getAttribute('data-sector-number');
     console.log(sectorNumber);
@@ -58,8 +57,6 @@ const onSeatSelect = event => {
 }
 
 const initHandlers = () => {
-    const arenaElem = document.querySelector('.arena');
-
     arenaElem.addEventListener('click', onSeatSelect);
 };
 
