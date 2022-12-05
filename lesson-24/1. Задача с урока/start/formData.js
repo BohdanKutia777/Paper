@@ -23,6 +23,7 @@ const validate = (fieldname, value) => {
 
 const OnEmailChange = event => {
     const errorText = validate('email', event.target.value);
+    console.log(event.target.value);
     emailErrorElem.textContent = errorText;
 }
 
