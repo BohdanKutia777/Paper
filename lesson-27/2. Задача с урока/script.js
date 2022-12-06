@@ -1,3 +1,6 @@
+// Рекурсия
+
+
 const favorites = ['id-2'];
 const tree = {
     id: 'id-1',
