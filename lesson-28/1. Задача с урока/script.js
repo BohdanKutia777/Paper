@@ -21,7 +21,7 @@ const ImgSrc = 'https://images.prom.ua/2913529835_w640_h640_vafelnaya-kartinka-a
 const onImageLoaded = (data) => {
     const {height, width} = data;
     const sizeElem = document.querySelector('.image-size');
-    sizeElem.textContent = `${width} * ${height}`;
+    sizeElem.textContent = `${width} X ${height}`;
 
 
 };
