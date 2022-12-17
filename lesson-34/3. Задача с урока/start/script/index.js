@@ -4,6 +4,7 @@ import { renderRepositories } from "./creativeTask.js";
 import { showSpinner, hideSpinner } from "./spinner.js";
 const showUserBtnElem = document.querySelector('.name-form__btn');
 const userNameInputElem = document.querySelector('.name-form__input');
+const reposList = document.querySelector('.repo-list');
 
 
 
@@ -23,7 +24,10 @@ const searchUser = () => {
     })
     .then(fetchRepositories)
     .then(repositoriesData => renderRepositories(repositoriesData))
-    .catch(error => alert(error.message))
+    .catch(error => {
+        reposList.textContent = '';
+        return alert(error.message);
+    })
     .finally(() => {
         hideSpinner()
     });
