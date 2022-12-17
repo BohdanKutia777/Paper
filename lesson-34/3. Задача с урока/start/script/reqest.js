@@ -12,4 +12,14 @@ export const renderUserData = userData => {
     userNameElem.textContent = name;
     userLocationElem.textContent = location ? `from ${location}` : '';
 
+
+    
 }
+
+export const fetchRepositories = url => fetch(url)
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        throw new Error('Failed to load data');
+    });
