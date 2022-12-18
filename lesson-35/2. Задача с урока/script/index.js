@@ -13,24 +13,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const searchUser = () => {
+const searchUser = async () => {
     const userId = userNameInputElem.value;
     userNameInputElem.value = "";
     showSpinner();
-    fetchUserData(userId)
-    .then(dataUser => {
-        renderUserData(dataUser)
-        return dataUser.repos_url;
-    })
-    .then(fetchRepositories)
-    .then(repositoriesData => renderRepositories(repositoriesData))
-    .catch(error => {
-        reposList.textContent = '';
-        return alert(error.message);
-    })
-    .finally(() => {
+    try {
+        const userData = await fetchUserData(userId);
+        renderUserData(userData);
+        const repostList = await fetchRepositories(userData.repos_url);
+        renderRepositories(repostList)
+    } catch (error) {
+            reposList.textContent = '';
+            return alert(error.message);
+    } finally {
         hideSpinner()
-    });
+    }
+
+
+    // fetchUserData(userId)
+    // .then(dataUser => {
+    //     renderUserData(dataUser)
+    //     return dataUser.repos_url;
+    // })
+    // .then(fetchRepositories)
+    // .then(repositoriesData => renderRepositories(repositoriesData))
+    // .catch(error => {
+    //     reposList.textContent = '';
+    //     return alert(error.message);
+    // })
+    // .finally(() => {
+    //     hideSpinner()
+    // });
     
 };
 showUserBtnElem.addEventListener('click', searchUser);
