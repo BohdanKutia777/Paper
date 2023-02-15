@@ -2,5 +2,8 @@
   "devDependencies": {
     "eslint": "^8.27.0",
     "eslint-config-airbnb": "^19.0.4"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
   }
 }
